@@ -1,0 +1,9 @@
+---
+interface Props {
+	techName: string;
+}
+
+const { techName } = Astro.props;
+---
+
+<img src={"/assets/" + techName + '.png'} alt={techName} title={techName}>
