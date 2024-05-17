@@ -31,17 +31,10 @@ const gradientId = 'icon-gradient-' + Math.round(Math.random() * 10e12).toString
 	<g set:html={iconPath} />
 	{
 		gradient && (
-			<linearGradient
-				id={gradientId}
-				x1="23"
-				x2="235"
-				y1="43"
-				y2="202"
-				gradientUnits="userSpaceOnUse"
-			>
-				<stop stop-color="var(--gradient-stop-1)" />
-				<stop offset=".5" stop-color="var(--gradient-stop-2)" />
-				<stop offset="1" stop-color="var(--gradient-stop-3)" />
+			<linearGradient id={gradientId}  x1="0%" y1="0%" x2="100%" y2="100%">
+				<stop offset="0%" stop-color="#4c11c6"/>
+				<stop offset="50%" stop-color="#7611a6"/>
+				<stop offset="1000%" stop-color="#c561f6"/>
 			</linearGradient>
 		)
 	}
@@ -52,5 +45,7 @@ const gradientId = 'icon-gradient-' + Math.round(Math.random() * 10e12).toString
 		vertical-align: middle;
 		width: var(--size, 1em);
 		height: var(--size, 1em);
+		
 	}
+	path{fill:url('#MyGradient'); }
 </style>
