@@ -3,20 +3,47 @@ import Icon from './Icon.astro';
 ---
 
 <section class="box skills">
-	<div class="stack gap-2 lg:gap-4">
-		<Icon icon="terminal-window" color="var(--accent-regular)" size="2.5rem" gradient />
-		<h2>Full Stack</h2>
-		<p></p>
-	</div>
-	<div class="stack gap-2 lg:gap-4">
-		<Icon icon="trophy" color="var(--accent-regular)" size="2.5rem" gradient />
-		<h2>UI/UX</h2>
-		<p></p>
-	</div>
-	<div class="stack gap-2 lg:gap-4">
-		<Icon icon="strategy" color="var(--accent-regular)" size="2.5rem" gradient />
-		<h2>Engineer Design</h2>
-		<p></p>
+	<div class="flex flex-row flex-wrap justify-center items-center gap-4">
+		<div class="skill">
+			<Icon icon="terminal-window" color="var(--accent-regular)" size="2.5rem" gradient />
+			<h2>Full Stack</h2>
+			<p></p>
+		</div>
+		<div class="skill">
+			<Icon icon="trophy" color="var(--accent-regular)" size="2.5rem" gradient />
+			<h2>UI/UX</h2>
+			<p></p>
+		</div>
+		<div class="skill">
+			<Icon icon="trophy" color="var(--accent-regular)" size="2.5rem" gradient />
+			<h2>Responsive Design</h2>
+			<p></p>
+		</div>
+		<div class="skill">
+			<Icon icon="strategy" color="var(--accent-regular)" size="2.5rem" gradient />
+			<h2>Engineer Design</h2>
+			<p></p>
+		</div>
+		<div class="skill">
+			<Icon icon="strategy" color="var(--accent-regular)" size="2.5rem" gradient />
+			<h2>CI/CD</h2>
+			<p></p>
+		</div>
+		<div class="skill">
+			<Icon icon="strategy" color="var(--accent-regular)" size="2.5rem" gradient />
+			<h2>Cloud Computing</h2>
+			<p></p>
+		</div>
+		<div class="skill">
+			<Icon icon="strategy" color="var(--accent-regular)" size="2.5rem" gradient />
+			<h2>DBs</h2>
+			<p></p>
+		</div>
+		<div class="skill">
+			<Icon icon="strategy" color="var(--accent-regular)" size="2.5rem" gradient />
+			<h2>APIs y Microservices</h2>
+			<p></p>
+		</div>
 	</div>
 </section>
 
@@ -27,15 +54,17 @@ import Icon from './Icon.astro';
 		background-color: var(--gray-999_40);
 		box-shadow: var(--shadow-sm);
 	}
-
-	.skills {
+	.skill{
 		display: flex;
 		flex-direction: column;
-		gap: 3rem;
+		justify-content: start;
+		text-align: center;
+		align-items: center;
+		gap: 4px;
+		flex: 1 0 30%;
 	}
-
-	.skills h2 {
-		font-size: var(--text-lg);
+	.skill h2 {
+		font-size: 1.1rem;
 	}
 
 	.skills p {
@@ -48,14 +77,16 @@ import Icon from './Icon.astro';
 			padding: 2.5rem;
 		}
 
-		.skills {
-			display: grid;
-			grid-template-columns: repeat(3, 1fr);
-			gap: 5rem;
-		}
-
-		.skills h2 {
+		.skill h2 {
 			font-size: var(--text-2xl);
+		}
+		.skill{
+			flex: 1 0 21%;
+		}
+	}
+	@media (min-width: 1280px) {
+		.skill{
+			flex: 1 0 15%;
 		}
 	}
 </style>
