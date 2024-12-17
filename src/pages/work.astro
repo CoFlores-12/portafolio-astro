@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-
+import 'aos/dist/aos.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 import ContactCTA from '../components/ContactCTA.astro';
@@ -27,7 +27,7 @@ const projects = (await getCollection('work')).sort(
 			<Grid variant="offset">
 				{
 					projects.map((project) => (
-						<li>
+						<li data-aos="fade-in"  data-aos-offset="200">
 							<PortfolioPreview project={project} />
 						</li>
 					))
@@ -37,3 +37,7 @@ const projects = (await getCollection('work')).sort(
 		<ContactCTA />
 	</div>
 </BaseLayout>
+<script>
+	import AOS from "aos";
+	AOS.init();
+  </script>

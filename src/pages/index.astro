@@ -75,7 +75,7 @@ const projects = (await getCollection('work'))
 
 		<main class="wrapper stack gap-20 lg:gap-48">
 			<section class=" with-background bg-variant text-center dark:text-white">
-				<h3 class="my-4">Skills</h3>
+				<h3 class="my-4" data-aos="zoom-in-up">Skills</h3>
 
 				<div class="grid grid-cols-4 xl:grid-cols-12 md:grid-cols-8 gap-4 skillsContainer items-center md:px-[10%] content-center items-center justify-items-center">
 						{
@@ -87,7 +87,7 @@ const projects = (await getCollection('work'))
 			</section>
 			<section class="section with-background with-cta">
 				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Selected Work</h3>
+					<h3 data-aos="zoom-in-up">Selected Work</h3>
 					<p></p>
 				</header>
 
@@ -103,8 +103,8 @@ const projects = (await getCollection('work'))
 					</Grid>
 				</div>
 
-				<div class="cta">
-					<CallToAction href="/work/">
+				<div class="cta" >
+					<CallToAction href="/work/" data-aos="zoom-in-up">
 						View All
 						<Icon icon="arrow-right" size="1.2em" />
 					</CallToAction>

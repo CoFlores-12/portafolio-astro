@@ -40,7 +40,24 @@ const { align = 'center', tagline, title } = Astro.props;
 		opacity: 0;
 		transform: scale(1);
 	}
-
+	@keyframes Apper {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
+		}
+	}
+	@keyframes ApperZ {
+		0% {
+			transform: scale(0.7);
+			opacity: 0;
+		}
+		100% {
+			transform: scale(1);
+			opacity: 1;
+		}
+	}
 	@media (min-width: 50em) {
 		.hero {
 			font-size: var(--text-xl);
