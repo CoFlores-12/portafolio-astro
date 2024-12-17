@@ -27,10 +27,18 @@ const { align = 'center', tagline, title } = Astro.props;
 		max-width: 37ch;
 		margin-inline: auto;
 	}
+	.tagline {
+		opacity: 0;
+		animation: Apper 1.5s ease-in-out 0.5s 1 forwards;
+		margin: 2.2rem;
+	}
 
 	.title {
 		font-size: var(--text-3xl);
 		color: var(--gray-0);
+		animation: ApperZ 0.7s ease-in-out 0s 1 forwards;
+		opacity: 0;
+		transform: scale(1);
 	}
 
 	@media (min-width: 50em) {
