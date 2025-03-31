@@ -38,8 +38,8 @@ const { Content } = await entry.render();
             <Icon icon="arrow-left" /> Work
           </a>
           <Hero title={entry.data.title} align="start">
-            <div class="details">
-              <div class="tags">
+            <div class="details w-full">
+              <div class="tags w-1/2 flex flex-row flex-wrap">
                 {entry.data.tags.map((t) => <Pill>{t}</Pill>)}
               </div>
               <p class="description">{entry.data.description}</p>
