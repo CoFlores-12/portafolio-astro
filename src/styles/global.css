@@ -1,4 +1,8 @@
 /* Global variables */
+/* src/styles/global.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 :root {
 	/* Colors */
 	--gray-0: #090b11;
@@ -142,9 +146,6 @@ img {
 	height: auto;
 }
 
-a {
-	color: var(--link-color);
-}
 
 h1,
 h2,

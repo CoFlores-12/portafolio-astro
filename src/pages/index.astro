@@ -1,303 +1,702 @@
 ---
+// src/pages/index.astro
 import { getCollection } from 'astro:content';
-import 'aos/dist/aos.css';
-
-// Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-// Component Imports
-import CallToAction from '../components/CallToAction.astro';
-import Grid from '../components/Grid.astro';
-import Hero from '../components/Hero.astro';
-import Icon from '../components/Icon.astro';
-import Pill from '../components/Pill.astro';
-import skill from '../components/Tech.astro';
-import PortfolioPreview from '../components/PortfolioPreview.astro';
-
-// Page section components
-import ContactCTA from '../components/ContactCTA.astro';
-import Skills from '../components/Skills.astro';
-import Tech from '../components/Tech.astro';
-
-// Content Fetching: List four most recent work projects
+// Obtener proyectos recientes
 const projects = (await getCollection('work'))
-	.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
-	.slice(0, 4);
-
-// Full Astro Component Syntax:
-// https://docs.astro.build/basics/astro-components/
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+  .slice(0, 3);
 ---
 
 <BaseLayout>
-	<div class="stack gap-20 lg:gap-48">
-		<div class="wrapper stack gap-8 lg:gap-20">
-			<header class="hero">
-				<Hero
-					title="Cesar Flores"
-					tagline="I am a Creative Developer who is currently based in Tegucigalpa, Honduras."
-					align="center"
-				>
-					<div class="roles">
-						<Pill><Icon icon="code" size="1.33em" />Developer</Pill>
-						<Pill>
-							
-	<svg xmlns="http://www.w3.org/2000/svg"  class="w-6 h-6 dark:text-white"  xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1000 1000" id="Layer_2" version="1.1" xml:space="preserve">
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title" id="typewriter">Cesar Flores</h1>
+        <h2 class="hero-subtitle">Ingeniero en Sistemas · Especialista en Desarrollo Web</h2>
+        <p class="hero-description">Construyendo soluciones digitales innovadoras con tecnología de punta.</p>
+        <div class="hero-actions">
+          <a href="#projects" class="primary-button">
+            Ver mi trabajo
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M5 13h11.17l-4.88 4.88c-.39.39-.39 1.03 0 1.42.39.39 1.02.39 1.41 0l6.59-6.59c.39-.39.39-1.02 0-1.41l-6.58-6.6c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L16.17 11H5c-.55 0-1 .45-1 1s.45 1 1 1z"/>
+            </svg>
+          </a>
+          <a href="/cv" class="secondary-button">
+            Mi CV
+          </a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="tech-bubble bubble-1">React</div>
+        <div class="tech-bubble bubble-2">Node.js</div>
+        <div class="tech-bubble bubble-3">Mongo</div>
+        <div class="tech-bubble bubble-4">Python</div>
+        <div class="tech-bubble bubble-5">NextJS</div>
+        <div class="profile-image">
+          <!-- Reemplaza con tu imagen -->
+          <img src="/pf2.png" class="w-full h-full object-cover" />
+        </div>
+      </div>
+    </div>
+  </section>
 
-		<g>
-		
-		<path d="M818.596,221.014H181.404c-16.569,0-30,13.431-30,30v93.212h697.192v-93.212   C848.596,234.445,835.165,221.014,818.596,221.014z M635.371,295.12h-28c-6.875,0-12.5-5.625-12.5-12.5s5.625-12.5,12.5-12.5h28   c6.875,0,12.5,5.625,12.5,12.5S642.246,295.12,635.371,295.12z M718.871,295.12h-28c-6.875,0-12.5-5.625-12.5-12.5   s5.625-12.5,12.5-12.5h28c6.875,0,12.5,5.625,12.5,12.5S725.746,295.12,718.871,295.12z M802.371,295.12h-28   c-6.875,0-12.5-5.625-12.5-12.5s5.625-12.5,12.5-12.5h28c6.875,0,12.5,5.625,12.5,12.5S809.246,295.12,802.371,295.12z" fill="currentcolor"/>
-		
-		<path d="M799.702,565.448c1.441-1.431,2.161-3.229,2.161-5.392c0-2.036-0.72-3.785-2.161-5.249   c-1.441-1.463-3.215-2.195-5.327-2.195h-9.215v14.984h9.215C796.487,567.596,798.262,566.88,799.702,565.448z" fill="currentcolor"/>
-		
-		<path d="M198.647,524.545c2.072-0.769,3.864-1.857,5.378-3.264c1.513-1.405,2.709-3.064,3.585-4.974   c0.876-1.91,1.315-4.006,1.315-6.288c0-2.387-0.439-4.549-1.315-6.487c-0.876-1.936-2.084-3.595-3.625-4.974   c-1.541-1.379-3.346-2.454-5.417-3.223c-2.072-0.769-4.275-1.155-6.612-1.155h-6.293v31.518h6.293   C194.345,525.698,196.575,525.314,198.647,524.545z" fill="currentcolor"/>
-		
-		<path d="M779.113,507.685c1.818,1.851,3.938,3.301,6.363,4.353c2.423,1.052,5.071,1.579,7.941,1.579   c2.87,0,5.533-0.526,7.989-1.579c2.455-1.052,4.607-2.503,6.458-4.353c1.849-1.85,3.301-4.019,4.353-6.506   c1.052-2.488,1.579-5.134,1.579-7.941c0-2.806-0.543-5.454-1.626-7.941c-1.085-2.488-2.552-4.655-4.401-6.506   c-1.851-1.849-4.018-3.316-6.506-4.401c-2.488-1.084-5.104-1.626-7.845-1.626c-2.87,0-5.534,0.559-7.989,1.674   c-2.456,1.117-4.577,2.616-6.362,4.497c-1.786,1.882-3.19,4.083-4.21,6.602c-1.021,2.52-1.531,5.151-1.531,7.893   c0,2.807,0.51,5.422,1.531,7.845C775.875,503.699,777.295,505.835,779.113,507.685z" fill="currentcolor"/>
-		
-		<path d="M151.404,748.986c0,16.569,13.431,30,30,30h637.192c16.569,0,30-13.431,30-30v-379.76H151.404   V748.986z M812.565,675.556c-1.208,2.485-2.78,4.556-4.711,6.213c-1.933,1.657-4.108,2.899-6.524,3.728   c-2.417,0.828-4.867,1.243-7.352,1.243c-2.899,0-5.643-0.517-8.232-1.553c-2.589-1.036-4.851-2.382-6.783-4.038   c-1.933-1.657-3.469-3.521-4.608-5.592c-1.139-2.071-1.709-4.142-1.709-6.213c0-2.002,0.621-3.537,1.864-4.608   c1.243-1.069,2.657-1.605,4.246-1.605c1.38,0,2.64,0.38,3.779,1.139c1.139,0.76,1.88,2.003,2.226,3.728   c0.345,2.003,1.38,3.573,3.107,4.712c1.725,1.139,3.762,1.708,6.109,1.708c2.001,0,3.831-0.603,5.488-1.812   c1.657-1.207,2.485-3.055,2.485-5.54c0-2.001-0.45-3.64-1.346-4.919c-0.898-1.276-2.055-2.398-3.469-3.365   c-1.416-0.966-2.951-1.846-4.608-2.641c-1.657-0.793-3.21-1.673-4.66-2.641c-1.45-0.966-2.865-2.087-4.246-3.365   c-1.382-1.277-2.624-2.692-3.728-4.246c-1.105-1.553-1.985-3.21-2.64-4.97c-0.657-1.76-0.984-3.641-0.984-5.643   c0-2.83,0.534-5.297,1.605-7.404c1.07-2.105,2.45-3.865,4.142-5.281c1.691-1.414,3.589-2.468,5.695-3.158   c2.105-0.689,4.228-1.036,6.368-1.036c2.071,0,4.158,0.363,6.265,1.088c2.105,0.725,3.987,1.76,5.644,3.107   c1.657,1.346,3.003,2.951,4.038,4.815c1.035,1.864,1.553,3.935,1.553,6.213c0,1.796-0.605,3.331-1.812,4.608   c-1.209,1.278-2.676,1.916-4.401,1.916c-1.589,0-2.935-0.448-4.038-1.346c-1.105-0.896-1.76-2.346-1.967-4.349   c-0.139-1.243-0.795-2.175-1.968-2.796c-1.175-0.621-2.314-0.932-3.417-0.932c-1.726,0-3.021,0.45-3.883,1.346   c-0.864,0.898-1.294,1.968-1.294,3.21c0,1.589,0.379,2.917,1.139,3.987c0.759,1.071,1.725,2.003,2.9,2.796   c1.173,0.794,2.449,1.519,3.831,2.174c1.38,0.657,2.657,1.33,3.831,2.02c1.932,1.174,3.744,2.485,5.436,3.935   c1.691,1.45,3.158,3.038,4.401,4.763c1.243,1.726,2.226,3.573,2.951,5.54c0.725,1.967,1.087,4.09,1.087,6.368   C814.378,670.172,813.772,673.071,812.565,675.556z M773.899,596.227V548.03c0-4.453,2.258-6.681,6.776-6.681h13.648   c2.544,0,4.963,0.494,7.253,1.479c2.291,0.987,4.295,2.338,6.013,4.056c1.718,1.718,3.069,3.722,4.056,6.013   c0.986,2.291,1.479,4.71,1.479,7.254c0,2.61-0.495,5.043-1.485,7.301c-0.99,2.259-2.346,4.247-4.07,5.965   c-1.724,1.718-3.736,3.07-6.034,4.056c-2.298,0.987-4.724,1.479-7.277,1.479h-9.098v17.275c0,3.818-1.861,5.727-5.583,5.727   C775.792,601.954,773.899,600.045,773.899,596.227z M764.044,481.23c1.594-3.858,3.811-7.255,6.649-10.19   c2.837-2.933,6.171-5.262,9.998-6.984c3.827-1.722,7.972-2.584,12.438-2.584c4.593,0,8.85,0.846,12.773,2.536   c3.923,1.691,7.334,3.971,10.237,6.841c2.902,2.87,5.167,6.236,6.793,10.094c1.627,3.86,2.44,7.957,2.44,12.294   c0,4.401-0.83,8.532-2.487,12.39c-1.66,3.86-3.923,7.224-6.793,10.094c-2.87,2.87-6.235,5.119-10.094,6.745   c-3.86,1.626-7.989,2.44-12.39,2.44c-4.401,0-8.548-0.813-12.438-2.44c-3.891-1.627-7.271-3.858-10.142-6.697   c-2.87-2.838-5.151-6.171-6.841-9.998c-1.691-3.827-2.536-7.941-2.536-12.342C761.652,489.156,762.449,485.09,764.044,481.23z    M233.342,566.248c0-10.098,7.265-18.732,17.215-20.457l11.216-1.945c3.372-14.611,9.142-28.301,16.859-40.65l-6.569-9.325   c-5.816-8.255-4.848-19.497,2.292-26.638l11.113-11.113c7.14-7.14,18.383-8.108,26.638-2.293l9.326,6.57   c12.349-7.717,26.04-13.487,40.65-16.859l1.945-11.216c1.725-9.949,10.359-17.215,20.457-17.215H400.2   c10.098,0,18.732,7.265,20.457,17.215l1.946,11.222c20.773,4.796,39.699,14.419,55.529,27.633l-1.58,1.92   c-13.04,15.82-22.81,33.99-28.89,53.37c-13.39-15.53-33.2-25.36-55.32-25.36c-40.31,0-73,32.68-73,73c0,40.31,32.69,73,73,73   c22.12,0,41.93-9.83,55.32-25.36c10.89-12.65,17.53-29.07,17.67-47.03v-1.22c0.14-32.08,11.56-61.5,30.51-84.5   c5.33-6.48,11.26-12.45,17.7-17.83c15.83-13.207,34.756-22.828,55.529-27.624l1.946-11.222   c1.725-9.949,10.359-17.215,20.457-17.215h15.716c10.098,0,18.732,7.265,20.457,17.215l1.945,11.216   c14.61,3.372,28.301,9.142,40.65,16.859l9.326-6.57c8.255-5.815,19.498-4.848,26.638,2.293l11.113,11.113   c7.14,7.141,8.108,18.383,2.292,26.638l-6.569,9.325c7.717,12.349,13.487,26.04,16.859,40.65l11.216,1.945   c9.95,1.725,17.215,10.359,17.215,20.457v15.716c0,10.098-7.265,18.732-17.215,20.457l-11.217,1.945   c-3.373,14.609-9.143,28.3-16.86,40.648l6.571,9.327c5.815,8.255,4.848,19.497-2.292,26.638l-11.113,11.113   c-7.14,7.14-18.383,8.108-26.638,2.292l-9.327-6.57c-12.349,7.717-26.039,13.487-40.648,16.86l-1.945,11.217   c-1.725,9.949-10.359,17.215-20.457,17.215h-15.716c-10.098,0-18.732-7.265-20.457-17.215l-1.946-11.222   c-20.773-4.796-39.7-14.416-55.529-27.624l1.6-1.94c13.03-15.82,22.79-33.99,28.88-53.36c13.38,15.53,33.19,25.36,55.31,25.36   c40.31,0,72.99-32.69,72.99-73c0-40.32-32.68-73-72.99-73c-22.12,0-41.93,9.83-55.31,25.36c-10.9,12.64-17.54,29.06-17.68,47.03   v1.22c-0.14,32.08-11.56,61.5-30.5,84.5c-5.34,6.48-11.27,12.45-17.71,17.82c-15.829,13.214-34.755,22.837-55.529,27.633   l-1.946,11.222c-1.725,9.949-10.359,17.215-20.457,17.215h-15.716c-10.098,0-18.732-7.265-20.457-17.215l-1.945-11.217   c-14.609-3.373-28.299-9.143-40.648-16.86l-9.328,6.57c-8.255,5.816-19.498,4.848-26.638-2.292l-11.113-11.113   c-7.14-7.141-8.108-18.383-2.292-26.638l6.571-9.327c-7.717-12.348-13.487-26.039-16.86-40.648l-11.217-1.945   c-9.95-1.725-17.215-10.359-17.215-20.457V566.248z M176.295,489.417c0-1.323,0.437-2.434,1.31-3.334   c0.873-0.899,1.997-1.35,3.374-1.35h11.909c3.652,0,7.038,0.662,10.162,1.985c3.122,1.323,5.835,3.124,8.137,5.399   c2.302,2.276,4.101,4.949,5.398,8.019c1.296,3.07,1.945,6.351,1.945,9.844c0,3.811-0.715,7.264-2.144,10.361   c-1.429,3.096-3.362,5.743-5.795,7.939c-2.435,2.197-5.267,3.89-8.495,5.081c-3.229,1.191-6.643,1.786-10.241,1.786h-10.877   c-1.377,0-2.501-0.449-3.374-1.35c-0.873-0.899-1.31-2.011-1.31-3.334V489.417z M207.416,568.58c1.322,0,2.447,0.447,3.374,1.339   c0.925,0.893,1.389,1.994,1.389,3.307c0,1.207-0.464,2.309-1.389,3.306c-0.927,0.997-2.052,1.496-3.374,1.496h-16.593v13.338   h17.704c1.27,0,2.355,0.46,3.255,1.378c0.899,0.918,1.35,2.059,1.35,3.424c0,1.313-0.45,2.415-1.35,3.307   c-0.9,0.893-1.985,1.338-3.255,1.338H186.1c-1.365,0-2.48-0.449-3.346-1.35c-0.866-0.899-1.299-2.01-1.299-3.334v-41.045   c0-1.323,0.433-2.434,1.299-3.335c0.866-0.899,1.981-1.35,3.346-1.35h22.507c1.322,0,2.447,0.45,3.374,1.35   c0.925,0.901,1.389,2.012,1.389,3.335c0,1.323-0.464,2.448-1.389,3.374c-0.927,0.927-2.052,1.389-3.374,1.389h-17.784v8.733   H207.416z M176.017,614.456c0.926-0.925,2.051-1.389,3.374-1.389c0.899,0,1.747,0.252,2.54,0.754   c0.794,0.503,1.429,1.284,1.905,2.342l13.417,31.359l13.814-31.439c0.476-1.058,1.124-1.826,1.945-2.302   c0.82-0.476,1.68-0.715,2.58-0.715c1.163,0,2.223,0.385,3.176,1.151c0.953,0.768,1.429,1.814,1.429,3.136   c-0.107,0.371-0.186,0.742-0.238,1.112c-0.053,0.371-0.133,0.768-0.238,1.191l-17.783,40.648c-0.424,0.9-1.006,1.655-1.747,2.263   c-0.742,0.609-1.721,0.913-2.938,0.913c-1.111,0-2.024-0.304-2.739-0.913c-0.714-0.608-1.284-1.389-1.707-2.342l-17.466-39.854   c-0.265-0.476-0.45-0.939-0.556-1.389c-0.107-0.449-0.159-0.886-0.159-1.31C174.628,616.454,175.09,615.382,176.017,614.456z" fill="currentcolor"/>
-		
-		</g>
-		
-		</svg>
-			
-						  DevOps</Pill>
-						<Pill><svg class="w-6 h-6 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-							<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18.5A2.493 2.493 0 0 1 7.51 20H7.5a2.468 2.468 0 0 1-2.4-3.154 2.98 2.98 0 0 1-.85-5.274 2.468 2.468 0 0 1 .92-3.182 2.477 2.477 0 0 1 1.876-3.344 2.5 2.5 0 0 1 3.41-1.856A2.5 2.5 0 0 1 12 5.5m0 13v-13m0 13a2.493 2.493 0 0 0 4.49 1.5h.01a2.468 2.468 0 0 0 2.403-3.154 2.98 2.98 0 0 0 .847-5.274 2.468 2.468 0 0 0-.921-3.182 2.477 2.477 0 0 0-1.875-3.344A2.5 2.5 0 0 0 14.5 3 2.5 2.5 0 0 0 12 5.5m-8 5a2.5 2.5 0 0 1 3.48-2.3m-.28 8.551a3 3 0 0 1-2.953-5.185M20 10.5a2.5 2.5 0 0 0-3.481-2.3m.28 8.551a3 3 0 0 0 2.954-5.185"/>
-						  </svg>
-						  
-						  Analyst</Pill>
-					</div>
-				</Hero>
+  <!-- Sección de Especialidades -->
+  <section class="specialties-section" id="skills">
+    <div class="container">
+      <h2 class="section-title">Mis <span class="highlight">Habilidades</span></h2>
+      <div class="specialties-grid">
+        <div class="specialty-card" data-aos="fade-up">
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M3 3h18v18H3V3zm16 16V5H5v14h14zM7 7h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"/>
+            </svg>
+          </div>
+          <h3>Frontend Avanzado</h3>
+          <p>React, Next.js, Astro, TailwindCSS y diseño responsive</p>
+        </div>
+        
+        <div class="specialty-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20 3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM8 19H4v-2h4v2zm0-4H4v-2h4v2zm0-4H4V9h4v2zm0-4H4V5h4v2zm6 12h-4v-2h4v2zm0-4h-4v-2h4v2zm0-4h-4V9h4v2zm0-4h-4V5h4v2zm6 12h-4v-2h4v2zm0-4h-4v-2h4v2zm0-4h-4V9h4v2zm0-4h-4V5h4v2z"/>
+            </svg>
+          </div>
+          <h3>Backend Robusto</h3>
+          <p>Node.js, Python, Java, bases de datos SQL y NoSQL</p>
+        </div>
+        
+        <div class="specialty-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+            </svg>
+          </div>
+          <h3>DevOps & Cloud</h3>
+          <p>Docker, Kubernetes, AWS, CI/CD pipelines</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-			</header>
+  
 
-			<Skills />
-		</div>
+  <!-- Tech Stack -->
+  <section class="tech-section">
+    <div class="container">
+      <h2 class="section-title">Mi <span class="highlight">Tech Stack</span></h2>
+      <div class="tech-grid">
+        <div class="tech-category" data-aos="fade-up">
+          <h3>Frontend</h3>
+          <div class="tech-items">
+            <div class="tech-item">React</div>
+            <div class="tech-item">Next.js</div>
+            <div class="tech-item">Astro</div>
+            <div class="tech-item">TailwindCSS</div>
+            <div class="tech-item">TypeScript</div>
+          </div>
+        </div>
+        
+        <div class="tech-category" data-aos="fade-up" data-aos-delay="100">
+          <h3>Backend</h3>
+          <div class="tech-items">
+            <div class="tech-item">Node.js</div>
+            <div class="tech-item">Python</div>
+            <div class="tech-item">Java</div>
+            <div class="tech-item">Express</div>
+            <div class="tech-item">Spring Boot</div>
+          </div>
+        </div>
+        
+        <div class="tech-category" data-aos="fade-up" data-aos-delay="200">
+          <h3>DevOps & Cloud</h3>
+          <div class="tech-items">
+            <div class="tech-item">Docker</div>
+            <div class="tech-item">Kubernetes</div>
+            <div class="tech-item">AWS</div>
+            <div class="tech-item">GitHub Actions</div>
+            <div class="tech-item">Terraform</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-		<main class="wrapper stack gap-20 lg:gap-48">
-			<section class=" with-background bg-variant text-center dark:text-white">
-				<h3 class="my-4" data-aos="zoom-in-up">Skills</h3>
+  <!-- Proyectos Destacados -->
+  <section class="projects-section" id="projects">
+    <div class="container">
+      <h2 class="section-title">Proyectos <span class="highlight">Destacados</span></h2>
+      <div class="projects-grid">
+        {projects.map((project, index) => (
+          <article class="project-card" data-aos="fade-up" data-aos-delay={index * 100}>
+            <div class="project-image">
+              <img src={project.data.img || '/images/project-placeholder.jpg'} alt={project.data.title} />
+            </div>
+            <div class="project-content">
+              <h3>{project.data.title}</h3>
+              <p>{project.data.description}</p>
+              <div class="project-tags">
+                {project.data.tags.map(tag => (
+                  <span class="tag">{tag}</span>
+                ))}
+              </div>
+              <a href={`/work/${project.slug}`} class="project-link">
+                Ver detalles
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M5 13h11.17l-4.88 4.88c-.39.39-.39 1.03 0 1.42.39.39 1.02.39 1.41 0l6.59-6.59c.39-.39.39-1.02 0-1.41l-6.58-6.6c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L16.17 11H5c-.55 0-1 .45-1 1s.45 1 1 1z"/>
+                </svg>
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+      <div class="projects-cta" data-aos="fade-up">
+        <a href="/work" class="primary-button">
+          Ver todos los proyectos
+        </a>
+      </div>
+    </div>
+  </section>
 
-				<div class="grid grid-cols-4 xl:grid-cols-12 md:grid-cols-8 gap-4 skillsContainer items-center md:px-[10%] content-center items-center justify-items-center">
-						{
-							['Git','MySQL','mongoDB','C', 'C-Sharp', 'DART', 'GoLang', 'Flutter', 'python', 'Flask','java','springboot', 'PHP', 'Laravel', 'HTML','CSS','Framework7', 'JS','Node', 'NextJS', 'react','Tailwind', 'TypeScript', 'Astro'].map((brand) => (
-								<Tech techName={brand}/>
-							))
-						}
-				</div>
-			</section>
-			<section class="section with-background with-cta">
-				<header class="section-header stack gap-2 lg:gap-4">
-					<h3 data-aos="zoom-in-up">Selected Work</h3>
-					<p></p>
-				</header>
 
-				<div class="gallery">
-					<Grid variant="offset">
-						{
-							projects.map((project) => (
-								<li  data-aos="zoom-in-down" data-aos-offset="300" data-aos-delay="300">
-									<PortfolioPreview project={project} />
-								</li>
-							))
-						}
-					</Grid>
-				</div>
-
-				<div class="cta" >
-					<CallToAction href="/work/" data-aos="zoom-in-up">
-						View All
-						<Icon icon="arrow-right" size="1.2em" />
-					</CallToAction>
-				</div>
-			</section>
-
-			
-		</main>
-
-		<ContactCTA />
-	</div>
 </BaseLayout>
-<script>
-	import AOS from "aos";
-	AOS.init();
-  </script>
-<style is:global>
-	
-	.skillsContainer > img {
-		width: 56px;
-		max-height: 56px;
-		filter: drop-shadow(0px 0px 10px var(--accent-regular))
-	}
-	@keyframes Apper {
-		0% {
-			opacity: 0;
-		}
-		100% {
-			opacity: 1;
-		}
-	}
-	@keyframes ApperZ {
-		0% {
-			transform: scale(0.7);
-			opacity: 0;
-		}
-		100% {
-			transform: scale(1);
-			opacity: 1;
-		}
-	}
-</style>
+
 <style>
-	
-	.roles {
-		opacity: 0;
-		animation: Apper 1.5s ease-in-out 1s 1 forwards;
-	}
-	.hero {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		gap: 2rem;
-	}
+  /* Variables de diseño */
+  :root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --secondary: #7c3aed;
+    --dark: #1e293b;
+    --light: #f8fafc;
+    --gray: #94a3b8;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --error: #ef4444;
+    
+    --max-width: 1200px;
+    --border-radius: 12px;
+    --box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --transition: all 0.3s ease;
+  }
 
-	.roles {
-			margin-top: 0.5rem;
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: center;
-			gap: 0.5rem;
-		}
+  /* Estilos base */
+  .container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
 
-	.hero img {
-		aspect-ratio: 5 / 4;
-		object-fit: cover;
-		object-position: top;
-		border-radius: 1.5rem;
-		box-shadow: var(--shadow-md);
-	}
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    color: var(--dark);
+    position: relative;
+    display: inline-block;
+  }
 
-	@media (min-width: 50em) {
-		.hero {
-			display: grid;
-			padding-inline: 2.5rem;
-			gap: 3.75rem;
-		}
+  .section-title .highlight {
+    color: var(--primary);
+    position: relative;
+  }
 
-		.roles {
-			margin-top: 0.5rem;
-			display: flex;
-			justify-content: center;
-			gap: 0.5rem;
-		}
+  .section-title .highlight::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    border-radius: 3px;
+  }
 
-		.hero img {
-			aspect-ratio: 3 / 4;
-			border-radius: 4.5rem;
-			object-fit: cover;
-		}
-	}
+  /* Botones */
+  .primary-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+    box-shadow: var(--box-shadow);
+    border: none;
+    cursor: pointer;
+  }
 
-	/* ====================================================== */
+  .primary-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
 
-	.section {
-		display: grid;
-		gap: 2rem;
-	}
+  .primary-button svg {
+    width: 20px;
+    height: 20px;
+    transition: var(--transition);
+  }
 
-	.with-background {
-		position: relative;
-	}
+  .primary-button:hover svg {
+    transform: translateX(3px);
+  }
 
-	.with-background::before {
-		--hero-bg: var(--bg-image-subtle-2);
+  .secondary-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: transparent;
+    color: var(--primary);
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+    border: 2px solid var(--primary);
+  }
 
-		content: '';
-		position: absolute;
-		pointer-events: none;
-		left: 50%;
-		width: 100vw;
-		aspect-ratio: calc(2.25 / var(--bg-scale));
-		top: 0;
-		transform: translateY(-75%) translateX(-50%);
-		background:
-			url('/assets/backgrounds/noise.png') top center/220px repeat,
-			var(--hero-bg) center center / var(--bg-gradient-size) no-repeat,
-			var(--gray-999);
-		background-blend-mode: overlay, normal, normal, normal;
-		mix-blend-mode: var(--bg-blend-mode);
-		z-index: -1;
-	}
+  .secondary-button:hover {
+    background: rgba(37, 99, 235, 0.1);
+  }
 
-	.with-background.bg-variant::before {
-		--hero-bg: var(--bg-image-subtle-1);
-	}
+  /* Hero Section */
+  .hero-section {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  }
 
-	.section-header {
-		justify-self: center;
-		text-align: center;
-		max-width: 50ch;
-		font-size: var(--text-md);
-		color: var(--gray-300);
-	}
+  .hero-content {
+    max-width: 600px;
+  }
 
-	.section-header h3 {
-		font-size: var(--text-2xl);
-	}
+  .hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: var(--dark);
+  }
 
-	@media (min-width: 50em) {
-		.section {
-			grid-template-columns: repeat(4, 1fr);
-			grid-template-areas: 'header header header header' 'gallery gallery gallery gallery';
-			gap: 5rem;
-		}
+  .hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--primary-dark);
+    margin-bottom: 1.5rem;
+  }
 
-		.section.with-cta {
-			grid-template-areas: 'header header header cta' 'gallery gallery gallery gallery';
-		}
+  .hero-description {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: var(--dark);
+    margin-bottom: 2rem;
+    opacity: 0.9;
+  }
 
-		.section-header {
-			grid-area: header;
-			font-size: var(--text-lg);
-		}
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
 
-		.section-header h3 {
-			font-size: var(--text-4xl);
-		}
+  .hero-image {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+  }
 
-		.with-cta .section-header {
-			justify-self: flex-start;
-			text-align: left;
-		}
+  .profile-image {
+    position: relative;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    background: #e0e7ff;
+    overflow: hidden;
+    margin: 0 auto;
+    border: 8px solid white;
+    box-shadow: var(--box-shadow);
+  }
 
-		.gallery {
-			grid-area: gallery;
-		}
+  .image-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+  }
 
-		.cta {
-			grid-area: cta;
-		}
-	}
+  .tech-bubble {
+    position: absolute;
+    background: white;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    box-shadow: var(--box-shadow);
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
 
-	/* ====================================================== */
+  .bubble-1 {
+    top: 10%;
+    left: 12%;
+    animation: float 6s ease-in-out infinite;
+  }
 
-	.mention-card {
-		display: flex;
-		height: 7rem;
-		justify-content: center;
-		align-items: center;
-		text-align: center;
-		border: 1px solid var(--gray-800);
-		border-radius: 1.5rem;
-		color: var(--gray-300);
-		background: var(--gradient-subtle);
-		box-shadow: var(--shadow-sm);
-	}
+  .bubble-2 {
+    top: 30%;
+    right: 0;
+    animation: float 7s ease-in-out infinite 1s;
+  }
 
-	@media (min-width: 50em) {
-		.mention-card {
-			border-radius: 1.5rem;
-			height: 9.5rem;
-		}
-	}
+  .bubble-3 {
+    bottom: 20%;
+    left: 5%;
+    animation: float 5s ease-in-out infinite 0.5s;
+  }
+
+  .bubble-4 {
+    bottom: 10%;
+    right: 10%;
+    animation: float 6.5s ease-in-out infinite 1.5s;
+  }
+  .bubble-5 {
+    top: 1%;
+    right: 20%;
+    animation: float 6.5s ease-in-out infinite 1.5s;
+  }
+
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+  }
+
+  /* Sección de Especialidades */
+  .specialties-section {
+    padding: 5rem 0;
+    background-color: var(--light);
+  }
+
+  .specialties-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .specialty-card {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .specialty-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  .specialty-card .icon {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: 50%;
+    margin-bottom: 1.5rem;
+  }
+
+  .specialty-card .icon svg {
+    width: 30px;
+    height: 30px;
+    color: white;
+  }
+
+  .specialty-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--dark);
+  }
+
+  .specialty-card p {
+    color: var(--gray);
+    line-height: 1.6;
+  }
+
+  /* Tech Stack Section */
+  .tech-section {
+    padding: 5rem 0;
+    background: white;
+  }
+
+  .tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .tech-category {
+    background: var(--light);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+  }
+
+  .tech-category h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--primary-dark);
+  }
+
+  .tech-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tech-item {
+    background: white;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    box-shadow: var(--box-shadow);
+  }
+
+  /* Projects Section */
+  .projects-section {
+    padding: 5rem 0;
+    background: var(--light);
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .project-card {
+    background: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+  }
+
+  .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  .project-image {
+    height: 200px;
+    overflow: hidden;
+  }
+
+  .project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+  }
+
+  .project-card:hover .project-image img {
+    transform: scale(1.05);
+  }
+
+  .project-content {
+    padding: 1.5rem;
+  }
+
+  .project-content h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--dark);
+  }
+
+  .project-content p {
+    color: var(--gray);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .tag {
+    background: #e0e7ff;
+    color: var(--primary-dark);
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .project-link svg {
+    width: 16px;
+    height: 16px;
+    transition: var(--transition);
+  }
+
+  .project-link:hover svg {
+    transform: translateX(3px);
+  }
+
+  .projects-cta {
+    text-align: center;
+  }
+
+  /* Contact Section */
+  .contact-section {
+    padding: 5rem 0;
+    background: var(--dark);
+    color: white;
+  }
+
+  .contact-section .section-title {
+    color: white;
+  }
+
+  .contact-section .highlight {
+    color: #38bdf8;
+  }
+
+  .contact-content {
+    max-width: 500px;
+  }
+
+  .contact-content p {
+    margin-bottom: 2rem;
+    line-height: 1.6;
+    color: var(--gray);
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .contact-item svg {
+    width: 24px;
+    height: 24px;
+    color: var(--primary);
+  }
+
+  .contact-form {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+  }
+
+  .form-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--dark);
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #e2e8f0;
+    border-radius: var(--border-radius);
+    font-family: inherit;
+    transition: var(--transition);
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  }
+
+  .form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+  }
+
+  /* Responsive */
+  @media (min-width: 768px) {
+    .hero-section .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .contact-section .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+    }
+
+    .hero-actions {
+      flex-direction: column;
+    }
+
+    .section-title {
+      font-size: 2rem;
+    }
+  }
 </style>
+
+<script is:inline>
+  // Efecto de escritura
+  document.addEventListener('DOMContentLoaded', () => {
+    
+    
+    // Inicializar AOS si está cargado
+    if (typeof AOS !== 'undefined') {
+      AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true
+      });
+    }
+  });
+</script>
