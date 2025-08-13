@@ -1,0 +1,140 @@
+---
+const { project, index } = Astro.props;
+---
+
+<article class="project-card " data-tags={project.data.tags.join(' ')}>
+  <div class="project-image">
+    <img 
+      src={project.data.img || '/images/project-placeholder.jpg'} 
+      alt={project.data.title}
+      loading={index < 3 ? 'eager' : 'lazy'}
+    />
+    <div class="project-overlay">
+      <a href={`/work/${project.slug}`} class="view-project">
+        Ver Proyecto
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M5 13h11.17l-4.88 4.88c-.39.39-.39 1.03 0 1.42.39.39 1.02.39 1.41 0l6.59-6.59c.39-.39.39-1.02 0-1.41l-6.58-6.6c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L16.17 11H5c-.55 0-1 .45-1 1s.45 1 1 1z"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+  <div class="project-content">
+    <h3>{project.data.title}</h3>
+    <p>{project.data.description}</p>
+    <div class="project-tags">
+      {project.data.tags.map(tag => (
+        <span class="tag">{tag}</span>
+      ))}
+    </div>
+  </div>
+</article>
+
+<style>
+  .project-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  }
+
+  .project-image {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+  }
+
+  .project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .project-card:hover .project-image img {
+    transform: scale(1.05);
+  }
+
+  .project-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #4361ee50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .project-card:hover .project-overlay {
+    opacity: 1;
+  }
+
+  .view-project {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: white;
+    color: var(--primary);
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .view-project:hover {
+    background: var(--accent);
+    color: white;
+  }
+
+  .view-project svg {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+  }
+
+  .view-project:hover svg {
+    transform: translateX(5px);
+  }
+
+  .project-content {
+    padding: 1.5rem;
+  }
+
+  .project-content h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--dark);
+  }
+
+  .project-content p {
+    color: var(--gray);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tag {
+    background: #e0e7ff;
+    color: var(--primary-dark);
+    padding: 0.25rem 0.75rem;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+  }
+</style>

@@ -1,10 +1,8 @@
-"use client"
-import './cvStyle.css'
+import './cvStyle.css';
 import { FaEnvelope, FaPhone, FaGithub, FaLinkedin, FaBriefcase, FaGraduationCap, FaLaptopCode, FaTools } from 'react-icons/fa';
 import { TbWorldCode } from "react-icons/tb";
 
 export default function CV() {
-  // Datos del CV
   const personalInfo = {
     name: "Cesar Obeth Flores",
     title: "Ingeniero en Sistemas",
@@ -73,15 +71,15 @@ export default function CV() {
 
   const projects = [
     {
-    title: "Venture - Plataforma de Eventos",
-    description: "Startup que permite a usuarios buscar eventos por categoría, nombre o mapa de la ciudad. Integrado con Google, Apple, Uber y sistema de pagos en línea.",
-    technologies: ["Next.js", "Google API", "Tailwind", "Uber ", "MongoDB"]
-  },
-  {
-    title: "IS-Manager - Gestor Académico UNAH",
-    description: "Sistema que realiza web scraping del sistema oficial de la UNAH para mostrar progreso académico, historial, rendimiento y ruta del plan de estudio con análisis de datos.",
-    technologies: ["Node.js", "HTML/CSS", "Data Analysis", "Chart.js"]
-  },
+      title: "Venture - Plataforma de Eventos",
+      description: "Startup que permite a usuarios buscar eventos por categoría, nombre o mapa de la ciudad. Integrado con Google, Apple, Uber y sistema de pagos en línea.",
+      technologies: ["Next.js", "Google API", "Tailwind", "Uber ", "MongoDB"]
+    },
+    {
+      title: "IS-Manager - Gestor Académico UNAH",
+      description: "Sistema que realiza web scraping del sistema oficial de la UNAH para mostrar progreso académico, historial, rendimiento y ruta del plan de estudio con análisis de datos.",
+      technologies: ["Node.js", "HTML/CSS", "Data Analysis", "Chart.js"]
+    },
   ];
 
   return (
@@ -97,7 +95,6 @@ export default function CV() {
             <div className="bg-gray-200 border-2 border-dashed rounded-xl w-32 h-32 flex items-center justify-center overflow-hidden">
               <img src="/pf2.png" className="w-full h-full object-cover" />
             </div>
-
           </div>
           
           <div className="grid grid-cols-3 gap-2 mt-4 text-sm">
@@ -131,7 +128,6 @@ export default function CV() {
                 <FaBriefcase className="text-blue-700 mr-2" />
                 <h2 className="text-xl font-bold text-gray-900">Experiencia Laboral</h2>
               </div>
-              
               {experience.map((exp, index) => (
                 <div key={index} className="mb-4">
                   <div className="flex justify-between">
@@ -153,7 +149,6 @@ export default function CV() {
                 <FaLaptopCode className="text-blue-700 mr-2" />
                 <h2 className="text-xl font-bold text-gray-900">Proyectos Destacados</h2>
               </div>
-              
               {projects.map((project, index) => (
                 <div key={index} className="mb-4">
                   <h3 className="font-bold">{project.title}</h3>
@@ -173,13 +168,12 @@ export default function CV() {
             </section>
           </div>
 
-          <div  className="col-span-2">
+          <div className="col-span-2">
             <section className="mb-6">
               <div className="flex items-center mb-3">
                 <FaGraduationCap className="text-blue-700 mr-2" />
                 <h2 className="text-xl font-bold text-gray-900">Educación</h2>
               </div>
-              
               {education.map((edu, index) => (
                 <div key={index} className="mb-4">
                   <h3 className="font-bold">{edu.institution}</h3>
@@ -195,13 +189,9 @@ export default function CV() {
                 <FaTools className="text-blue-700 mr-2" />
                 <h2 className="text-xl font-bold text-gray-900">Habilidades Técnicas</h2>
               </div>
-              
               <div className="flex flex-row flex-wrap gap-2">
                 {skills.map((skill, index) => (
-                   <span 
-                        key={index} 
-                        className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded"
-                      >
+                  <span key={index} className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">
                     {skill.name}
                   </span>
                 ))}
@@ -217,7 +207,7 @@ export default function CV() {
                 </li>
                 <li className="flex items-start">
                   <span className="text-blue-700 mr-2">•</span>
-                  <span> University of Michigan - Web Data in Python</span>
+                  <span>University of Michigan - Web Data in Python</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-blue-700 mr-2">•</span>
@@ -227,8 +217,6 @@ export default function CV() {
             </section>
           </div>
         </div>
-
-       
       </div>
     </div>
   );

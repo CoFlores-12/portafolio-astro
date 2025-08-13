@@ -1,42 +1,271 @@
 ---
 import { getCollection } from 'astro:content';
-import 'aos/dist/aos.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
-
-import ContactCTA from '../components/ContactCTA.astro';
-import PortfolioPreview from '../components/PortfolioPreview.astro';
-import Hero from '../components/Hero.astro';
-import Grid from '../components/Grid.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import Nav from '../components/Nav.astro';
 
 const projects = (await getCollection('work')).sort(
-	(a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf()
 );
 ---
 
 <BaseLayout
-	title="My Work | Cesar Flores"
-	description="Learn about Cesar Flores most recent projects"
+  title="Portafolio | César Flores"
+  description="Explora mis proyectos destacados como desarrollador web full-stack"
 >
-	<div class="stack gap-20">
-		<main class="wrapper stack gap-8">
-			<Hero
-				title="My Work"
-				tagline="See my most recent projects below to get an idea of my past experience."
-				align="start"
-			/>
-			<Grid variant="offset">
-				{
-					projects.map((project) => (
-						<li data-aos="fade-in"  data-aos-offset="200">
-							<PortfolioPreview project={project} />
-						</li>
-					))
-				}
-			</Grid>
-		</main>
-		<ContactCTA />
-	</div>
+<Nav/>
+
+  <!-- Hero Section -->
+  <section class="portfolio-hero">
+    <div class="w-full">
+      <h1 data-aos="fade-down">Mis <span class="highlight">Trabajos</span></h1>
+      <p class="subtitle" data-aos="fade-down" data-aos-delay="100">
+        Soluciones digitales innovadoras que combinan diseño y tecnología
+      </p>
+     
+  </section>
+
+  <!-- Projects Grid -->
+  <section class="projects-gallery">
+    <div class="p-4 w-full ">
+      <div class="projects-grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+        {projects.map((project, index) => (
+          <ProjectCard 
+            project={project} 
+            index={index}
+            data-aos="fade-up" 
+            data-aos-delay={index * 100}
+			
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="portfolio-cta">
+    <div class="w-full" data-aos="zoom-in">
+      <h2 class="!text-white">¿Listo para comenzar tu proyecto?</h2>
+      <p>Contáctame y hablemos sobre cómo puedo ayudarte a hacerlo realidad.</p>
+      <a href="/contacto" class="cta-button">
+        Contactar ahora
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M5 13h11.17l-4.88 4.88c-.39.39-.39 1.03 0 1.42.39.39 1.02.39 1.41 0l6.59-6.59c.39-.39.39-1.02 0-1.41l-6.58-6.6c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41L16.17 11H5c-.55 0-1 .45-1 1s.45 1 1 1z"/>
+        </svg>
+      </a>
+    </div>
+  </section>
 </BaseLayout>
+
+<style>
+  /* Variables */
+  .bg-gr {
+	background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%)
+  }
+  :root {
+    --primary: #4361ee;
+    --primary-dark: #3a0ca3;
+    --secondary: #7209b7;
+    --dark: #1a1a2e;
+    --light: #f8f9fa;
+    --gray: #6c757d;
+    --accent: #f72585;
+  }
+
+  /* Portfolio Hero */
+  .portfolio-hero {
+    padding: 6rem 0 4rem;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    text-align: center;
+  }
+
+  .portfolio-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    color: var(--dark);
+  }
+
+  .portfolio-hero .highlight {
+    color: var(--primary);
+    position: relative;
+  }
+
+  .portfolio-hero .highlight::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary), var(--secondary));
+    border-radius: 3px;
+  }
+
+  .portfolio-hero .subtitle {
+    font-size: 1.25rem;
+    color: var(--gray);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+  }
+
+  .filters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+  }
+
+  .filter-btn {
+    padding: 0.5rem 1.5rem;
+    background: transparent;
+    border: 2px solid var(--primary);
+    color: var(--primary);
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .filter-btn.active,
+  .filter-btn:hover {
+    background: var(--primary);
+    color: white;
+    box-shadow: 0 4px 6px rgba(67, 97, 238, 0.3);
+  }
+
+  
+
+  .projects-grid {
+    display: grid;
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  /* Project Card (deberás crear este componente) */
+  .project-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Portfolio CTA */
+  .portfolio-cta {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white;
+    text-align: center;
+  }
+
+  .portfolio-cta h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .portfolio-cta p {
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    opacity: 0.9;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 2rem;
+    background: white;
+    color: var(--primary);
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+  }
+
+  .cta-button svg {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+  }
+
+  .cta-button:hover svg {
+    transform: translateX(5px);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .portfolio-hero h1 {
+      font-size: 2.5rem;
+    }
+
+    .projects-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .filter-btn {
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+    }
+  }
+</style>
+
+<script is:inline>
+  // Filtrado de proyectos
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Remover clase active de todos los botones
+        filterButtons.forEach(btn => btn.classList.remove('active'));
+        // Agregar clase active al botón clickeado
+        button.classList.add('active');
+        
+        // Aquí iría la lógica para filtrar los proyectos
+        // const filterValue = button.textContent;
+        // filterProjects(filterValue);
+      });
+    });
+
+    // Inicializar AOS
+    if (typeof AOS !== 'undefined') {
+      AOS.init({
+        duration: 800,
+        easing: 'ease-in-out',
+        once: true
+      });
+    }
+  });
+
+  // Función para filtrar proyectos (implementación básica)
+  function filterProjects(filter) {
+    const projects = document.querySelectorAll('.project-card');
+    
+    projects.forEach(project => {
+      const projectTags = project.getAttribute('data-tags').split(' ');
+      
+      if (filter === 'Todos' || projectTags.includes(filter.toLowerCase())) {
+        project.style.display = 'block';
+      } else {
+        project.style.display = 'none';
+      }
+    });
+  }
+</script>
 <script>
 	import AOS from "aos";
 	AOS.init();
