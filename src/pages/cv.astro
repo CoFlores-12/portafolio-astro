@@ -1,14 +1,222 @@
 ---
-import CV from "../components/CV"
----
+import BaseLayout from "../layouts/BaseLayout.astro";
 
-<html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <title>CV - Cesar Obeth Flores</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  </head>
-  <body class="bg-white">
-    <CV client:load />
-  </body>
-</html>
+
+
+// Toda la lógica de JavaScript se mueve dentro de esta sección
+const personalInfo = {
+  name: "Cesar Obeth Flores",
+  title: "Ingeniero en Sistemas",
+  email: "cofloresf12@gmail.com",
+  phone: "+504 8793-8413",
+  location: "Honduras",
+  github: "CoFlores-12",
+  linkedin: "cofloresf",
+  portafolio: "https://cofloresf.vercel.app/",
+  about: "Ingeniero en Sistemas con 2 años de experiencia en desarrollo fullstack. Especializado en NextJS, React y desarrollo de aplicaciones empresariales. Apasionado por crear soluciones tecnológicas innovadoras.",
+};
+
+const education = [
+  {
+    institution: "Universidad Nacional Autónoma de Honduras",
+    degree: "Ingeniería en Sistemas",
+    period: "2020 - 2025",
+    description: "Formación en ingeniería de software, bases de datos, redes y gestión de proyectos."
+  },
+  {
+    institution: "Instituto Evangélico Hosanna",
+    degree: "Bachillerato Técnico Profesional en informática",
+    period: "2017 - 2019",
+    description: "Educación técnica con enfoque en informática y desarrollo de software."
+  }
+];
+
+const experience = [
+  {
+    company: "Freelance",
+    position: "Desarrollador Fullstack",
+    period: "2023 - Presente",
+    achievements: [
+      "Desarrollo de ERP para Franquicia Helados Sarita",
+      "Creación de plataforma de banca en línea para Cooperativa Familiar",
+      "Implementación de sistemas de gestión para pequeñas y medianas empresas nativas y del extranjero"
+    ]
+  },
+  {
+    company: "CEUTEC",
+    position: "Practicante Profesional",
+    period: "2019 Sept. - Nov",
+    achievements: [
+      "Mantenimiento de equipo de computo",
+      "Soporte técnico a usuarios finales",
+      "Mantenimiento de infraestructura de redes"
+    ]
+  }
+];
+
+const skills = [
+  { name: "NextJS", level: 95 },
+  { name: "React", level: 90 },
+  { name: "HTML/CSSJS", level: 90 },
+  { name: "Tailwind", level: 85 },
+  { name: "MongoDB", level: 75 },
+  { name: "Git", level: 80 },
+  { name: "Python", level: 80 },
+  { name: "Java", level: 80 },
+  { name: "PHP", level: 80 },
+  { name: "MySQL", level: 80 },
+  { name: "Golang", level: 80 },
+  { name: "Dart", level: 80 },
+  { name: "Laravel", level: 80 }
+];
+
+const projects = [
+  {
+    title: "Venture - Plataforma de Eventos",
+    description: "Startup que permite a usuarios buscar eventos por categoría, nombre o mapa de la ciudad. Integrado con Google, Apple, Uber y sistema de pagos en línea.",
+    technologies: ["Next.js", "Google API", "Tailwind", "Uber ", "MongoDB"]
+  },
+  {
+    title: "IS-Manager - Gestor Académico UNAH",
+    description: "Sistema que realiza web scraping del sistema oficial de la UNAH para mostrar progreso académico, historial, rendimiento y ruta del plan de estudio con análisis de datos.",
+    technologies: ["Node.js", "HTML/CSS", "Data Analysis", "Chart.js"]
+  },
+];
+---
+<BaseLayout>
+<div class="min-h-screen bg-white p-0 m-0">
+  <div class="max-w-[210mm] min-h-[297mm] mx-auto bg-white shadow-lg p-8 text-gray-800">
+    <header class="border-b-2 border-blue-700 pb-4 mb-6">
+      <div class="flex justify-between items-start">
+        <div class="w-full">
+          <h1 class="text-3xl font-bold text-gray-900">{personalInfo.name}</h1>
+          <h2 class="text-xl text-blue-700 font-medium">{personalInfo.title}</h2>
+          <p class="text-gray-600 mt-2 w-full pr-8">{personalInfo.about}</p>
+        </div>
+        <div class="bg-gray-200 border-2 border-dashed rounded-xl w-32 h-32 flex items-center justify-center overflow-hidden">
+          <img src="/pf2.png" class="w-full h-full object-cover" />
+        </div>
+      </div>
+      
+      <div class="grid grid-cols-3 gap-2 mt-4 text-sm">
+        <div class="flex items-center">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="text-blue-700 mr-2" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M502.3 190.8c3.9-3.1 9.7-.2 9.7 4.7V400c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V195.6c0-5 5.7-7.8 9.7-4.7 22.4 17.4 52.1 39.5 154.1 113.6 21.1 15.4 56.7 47.8 92.2 47.6 35.7.3 72-32.8 92.3-47.6 102-74.1 131.6-96.3 154-113.7zM256 320c23.2.4 56.6-29.2 73.4-41.4 132.7-96.3 142.8-104.7 173.4-128.7 5.8-4.5 9.2-11.5 9.2-18.9v-19c0-26.5-21.5-48-48-48H48C21.5 64 0 85.5 0 112v19c0 7.4 3.4 14.3 9.2 18.9 30.6 23.9 40.7 32.4 173.4 128.7 16.8 12.2 50.2 41.8 73.4 41.4z"></path></svg>
+          <a href={`mailto:${personalInfo.email}`}>{personalInfo.email}</a>
+        </div>
+        <div class="flex items-center">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="text-blue-700 mr-2" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M493.4 24.6l-104-24c-11.3-2.6-22.9 3.3-27.5 13.9l-48 112c-4.2 9.8-1.4 21.3 6.9 28l60.6 49.6c-36 76.7-98.9 140.5-177.2 177.2l-49.6-60.6c-6.8-8.3-18.2-11.1-28-6.9l-112 48C3.9 366.5-2 378.1.6 389.4l24 104C27.1 504.2 36.7 512 48 512c256.1 0 464-207.5 464-464 0-11.2-7.7-20.9-18.6-23.4z"></path></svg>
+          <a href={`tel:${personalInfo.phone}`}>{personalInfo.phone}</a>
+        </div>
+        <div class="flex items-center">
+          <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" class="text-blue-700 mr-2" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M20.942 13.02a9 9 0 1 0 -9.47 7.964"></path><path d="M3.6 9h16.8"></path><path d="M3.6 15h9.9"></path><path d="M11.5 3a17 17 0 0 0 0 18"></path><path d="M12.5 3c2 3.206 2.837 6.913 2.508 10.537"></path><path d="M20 21l2 -2l-2 -2"></path><path d="M17 17l-2 2l2 2"></path></svg>
+          <a href={personalInfo.portafolio}>{personalInfo.portafolio}</a>
+        </div>
+        <div class="flex items-center">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 496 512" class="text-blue-700 mr-2" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg>
+          <a href='https://github.com/CoFlores-12'>github.com/{personalInfo.github}</a>
+        </div>
+        <div class="flex items-center">
+          <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" class="text-blue-700 mr-2" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg>
+          <a href='www.linkedin.com/in/cofloresf'>linkedin.com/in/{personalInfo.linkedin}</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="grid grid-cols-5 gap-6">
+      <div class="col-span-3">
+        <section class="mb-6">
+          <div class="flex items-center mb-3">
+            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="text-blue-700 mr-2" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M320 336c0 8.84-7.16 16-16 16h-96c-8.84 0-16-7.16-16-16v-48H0v144c0 25.6 22.4 48 48 48h416c25.6 0 48-22.4 48-48V288H320v48zm144-208h-80V80c0-25.6-22.4-48-48-48H176c-25.6 0-48 22.4-48 48v48H48c-25.6 0-48 22.4-48 48v80h512v-80c0-25.6-22.4-48-48-48zm-144 0H192V96h128v32z"></path></svg>
+            <h2 class="text-xl font-bold text-gray-900">Experiencia Laboral</h2>
+          </div>
+          {experience.map((exp) => (
+            <div class="mb-4">
+              <div class="flex justify-between">
+                <h3 class="font-bold text-lg">{exp.position}</h3>
+                <span class="text-blue-700 font-medium">{exp.period}</span>
+              </div>
+              <p class="text-gray-700 font-medium italic">{exp.company}</p>
+              <ul class="mt-2 pl-5 list-disc text-sm">
+                {exp.achievements.map((achievement) => (
+                  <li class="mb-1">{achievement}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </section>
+
+        <section class="mb-6">
+          <div class="flex items-center mb-3">
+            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 640 512" class="text-blue-700 mr-2" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M255.03 261.65c6.25 6.25 16.38 6.25 22.63 0l11.31-11.31c6.25-6.25 6.25-16.38 0-22.63L253.25 192l35.71-35.72c6.25-6.25 6.25-16.38 0-22.63l-11.31-11.31c-6.25-6.25-16.38-6.25-22.63 0l-58.34 58.34c-6.25 6.25-6.25 16.38 0 22.63l58.35 58.34zm96.01-11.3l11.31 11.31c6.25 6.25 16.38 6.25 22.63 0l58.34-58.34c6.25-6.25 6.25-16.38 0-22.63l-58.34-58.34c-6.25-6.25-16.38-6.25-22.63 0l-11.31 11.31c-6.25 6.25-6.25 16.38 0 22.63L386.75 192l-35.71 35.72c-6.25 6.25-6.25 16.38 0 22.63zM624 416H381.54c-.74 19.81-14.71 32-32.74 32H288c-18.69 0-33.02-17.47-32.77-32H16c-8.8 0-16 7.2-16 16v16c0 35.2 28.8 64 64 64h512c35.2 0 64-28.8 64-64v-16c0-8.8-7.2-16-16-16zM576 48c0-26.4-21.6-48-48-48H112C85.6 0 64 21.6 64 48v336h512V48zm-64 272H128V64h384v256z"></path></svg>
+            <h2 class="text-xl font-bold text-gray-900">Proyectos Destacados</h2>
+          </div>
+          {projects.map((project) => (
+            <div class="mb-4">
+              <h3 class="font-bold  text-lg">{project.title}</h3>
+              <p class="text-gray-700 mb-2 text-sm">{project.description}</p>
+              <div class="flex flex-wrap gap-1">
+                {project.technologies.map((tech) => (
+                  <span
+                    class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </section>
+      </div>
+
+      <div class="col-span-2">
+        <section class="mb-6">
+          <div class="flex items-center mb-3">
+            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 640 512" class="text-blue-700 mr-2" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M622.34 153.2L343.4 67.5c-15.2-4.67-31.6-4.67-46.79 0L17.66 153.2c-23.54 7.23-23.54 38.36 0 45.59l48.63 14.94c-10.67 13.19-17.23 29.28-17.88 46.9C38.78 266.15 32 276.11 32 288c0 10.78 5.68 19.85 13.86 25.65L20.33 428.53C18.11 438.52 25.71 448 35.94 448h56.11c10.24 0 17.84-9.48 15.62-19.47L82.14 313.65C90.32 307.85 96 298.78 96 288c0-11.57-6.47-21.25-15.66-26.87.76-15.02 8.44-28.3 20.69-36.72L296.6 284.5c9.06 2.78 26.44 6.25 46.79 0l278.95-85.7c23.55-7.24 23.55-38.36 0-45.6zM352.79 315.09c-28.53 8.76-52.84 3.92-65.59 0l-145.02-44.55L128 384c0 35.35 85.96 64 192 64s192-28.65 192-64l-14.18-113.47-145.03 44.56z"></path></svg>
+            <h2 class="text-xl font-bold text-gray-900">Educación</h2>
+          </div>
+          {education.map((edu) => (
+            <div class="mb-4">
+              <h3 class="font-bold  text-lg">{edu.institution}</h3>
+              <p class="text-gray-700 font-medium">{edu.degree}</p>
+              <p class="text-blue-700 text-sm">{edu.period}</p>
+              <p class="text-gray-600 text-sm mt-1">{edu.description}</p>
+            </div>
+          ))}
+        </section>
+
+        <section class="mb-6">
+          <div class="flex items-center mb-3">
+            <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 512 512" class="text-blue-700 mr-2" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M501.1 395.7L384 278.6c-23.1-23.1-57.6-27.6-85.4-13.9L192 158.1V96L64 0 0 64l96 128h62.1l106.6 106.6c-13.6 27.8-9.2 62.3 13.9 85.4l117.1 117.1c14.6 14.6 38.2 14.6 52.7 0l52.7-52.7c14.5-14.6 14.5-38.2 0-52.7zM331.7 225c28.3 0 54.9 11 74.9 31l19.4 19.4c15.8-6.9 30.8-16.5 43.8-29.5 37.1-37.1 49.7-89.3 37.9-136.7-2.2-9-13.5-12.1-20.1-5.5l-74.4 74.4-67.9-11.3L334 98.9l74.4-74.4c6.6-6.6 3.4-17.9-5.7-20.2-47.4-11.7-99.6.9-136.6 37.9-28.5 28.5-41.9 66.1-41.2 103.6l82.1 82.1c8.1-1.9 16.5-2.9 24.7-2.9zm-103.9 82l-56.7-56.7L18.7 402.8c-25 25-25 65.5 0 90.5s65.5 25 90.5 0l123.6-123.6c-7.6-19.9-9.9-41.6-5-62.7zM64 472c-13.2 0-24-10.8-24-24 0-13.3 10.7-24 24-24s24 10.7 24 24c0 13.2-10.7 24-24 24z"></path></svg>
+            <h2 class="text-xl font-bold text-gray-900">Habilidades Técnicas</h2>
+          </div>
+          <div class="flex flex-row flex-wrap gap-2">
+            {skills.map((skill) => (
+              <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">
+                {skill.name}
+              </span>
+            ))}
+          </div>
+        </section>
+
+        <section>
+          <h2 class="text-xl font-bold text-gray-900 mb-3">Certificaciones</h2>
+          <ul class="space-y-1">
+            <li class="flex items-start">
+              <span class="text-blue-700 mr-2">•</span>
+              <span>Cisco CCNAv7</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-blue-700 mr-2">•</span>
+              <span>University of Michigan - Web Data in Python</span>
+            </li>
+            <li class="flex items-start">
+              <span class="text-blue-700 mr-2">•</span>
+              <span>Node.js Backend Development</span>
+            </li>
+          </ul>
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+</BaseLayout>
