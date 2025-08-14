@@ -8,14 +8,13 @@ import ContactCTA from '../../components/ContactCTA.astro';
 import Hero from '../../components/Hero.astro';
 import Icon from '../../components/Icon.astro';
 import Pill from '../../components/Pill.astro';
+import ViewButton from '../../components/ViewButton.astro';
 
 interface Props {
 	entry: CollectionEntry<'work'>;
 }
 
-// This is a dynamic route that generates a page for every Markdown file in src/content/
-// Read more about dynamic routes and this `getStaticPaths` function in the Astro docs:
-// https://docs.astro.build/en/core-concepts/routing/#dynamic-routes
+
 export async function getStaticPaths() {
 	const work = await getCollection('work');
 	return work.map((entry) => ({
@@ -45,6 +44,11 @@ const { Content } = await entry.render();
               <p class="description">{entry.data.description}</p>
             </div>
           </Hero>
+		  {
+			entry.data.web && (
+				<center><ViewButton url={entry.data.web}/></center>
+			)
+		  }
         </div>
       </header>
       <main class="wrapper">

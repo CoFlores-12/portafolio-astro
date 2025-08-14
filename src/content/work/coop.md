@@ -3,6 +3,7 @@ title: Cooperativa Familiar - Plataforma Digital
 publishDate: 2025-03-30 00:00:00  
 img: /assets/apps/coop1.png  
 img_alt: Interfaz principal de la Cooperativa Familiar con módulos de gestión financiera  
+web: https://cooperativa-familiar.vercel.app/
 images:  
   - src: /assets/apps/coop2.png  
     alt: Módulo de Depósitos  

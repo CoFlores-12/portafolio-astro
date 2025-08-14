@@ -3,6 +3,7 @@ title: Venture - Eventos
 publishDate: 2025-07-30 00:00:00  
 img: /assets/apps/vt1.png  
 img_alt: Interfaz principal de Venture con eventos y mapa interactivo  
+web: https://venture-navy.vercel.app/
 images:  
   - src: /assets/apps/vt6.jpg  
     alt: Primer lugar en StartUp Battle 
