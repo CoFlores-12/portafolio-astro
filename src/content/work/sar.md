@@ -1,7 +1,7 @@
 ---
 title: Helados Sarita ERP  
 publishDate: 2025-08-13 00:00:00  
-img: /assets/apps/sar0.png  
+img: /assets/apps/sar8.png  
 img_alt: Interfaz principal de plataforma Helados Sarita
 web: https://venture-navy.vercel.app/
 images:  
