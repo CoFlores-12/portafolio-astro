@@ -5,7 +5,7 @@ img: /assets/apps/del1.png
 img_alt: Iridescent ripples of a bright blue and pink liquid
 description: |
   Plataforma para delivery
-web: https://fflionservices.vercel.app/
+web: https://deliverit-client.netlify.app/
 images:  
   - src: /assets/apps/del1.png  
     alt: index  
