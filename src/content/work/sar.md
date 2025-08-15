@@ -29,6 +29,18 @@ images:
     alt: cierre de caja
     caption: "Cierre de caja disponible de cualquier fecha con detalles de ordenes y estado de resultado"
 
+  - src: /assets/apps/sar9.png  
+    alt: gestion de productos
+    caption: "Aplicativo de escritorio instalable en Windows, se sincroniza con la plataforma web para gestionar productos e ingredientes disponibles."
+
+  - src: /assets/apps/sar10.png  
+    alt: orden
+    caption: "Sistema de facturacion en aplicativo de escritorio permite crear ordenes para posterior sincronizarlas con la plataforma o mantenerlas en espera si esta offline. "
+
+  - src: /assets/apps/sar11.png  
+    alt: cierre de caja
+    caption: "FInalizar una orden, pago con tarjeta o efectivo, se pueden aplicar descuentos, para posteriormente imprimir un recibo."
+
 
 
 description: |
