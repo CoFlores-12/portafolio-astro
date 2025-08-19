@@ -1,0 +1,93 @@
+---
+// src/components/CertificateCard.astro
+const { certificate, index } = Astro.props;
+---
+
+<article 
+  class="certificate-card" 
+  data-index={index}
+  onclick={`openModal('${certificate.image}', '${certificate.title}', '${certificate.description}')`}
+>
+  <div class="certificate-image-container">
+    <img 
+      src={certificate.image} 
+      alt={certificate.title} 
+      width="400"
+      height="300"
+      loading="lazy"
+      decoding="async"
+      class="certificate-image"
+    />
+  </div>
+  <div class="certificate-info">
+    <h3>{certificate.title}</h3>
+    <p>{certificate.issuer}</p>
+    <span class="certificate-date">{certificate.date}</span>
+  </div>
+</article>
+
+<style>
+  .certificate-card {
+    min-width: 400px;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    scroll-snap-align: center;
+    margin: 0 0.5rem;
+  }
+
+  .certificate-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  }
+
+  .certificate-image-container {
+    height: 200px;
+    overflow: hidden;
+  }
+
+  .certificate-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .certificate-card:hover .certificate-image {
+    transform: scale(1.05);
+  }
+
+  .certificate-info {
+    padding: 1.5rem;
+  }
+
+  .certificate-info h3 {
+    margin: 0 0 0.5rem;
+    color: #2c3e50;
+    font-size: 1.2rem;
+  }
+
+  .certificate-info p {
+    margin: 0 0 0.5rem;
+    color: #7f8c8d;
+    font-size: 0.9rem;
+  }
+
+  .certificate-date {
+    display: inline-block;
+    background: #f1f1f1;
+    padding: 0.2rem 0.8rem;
+    border-radius: 2rem;
+    font-size: 0.8rem;
+    color: #555;
+  }
+
+  @media (max-width: 480px) {
+    .certificate-card {
+      min-width: 250px;
+    }
+  }
+</style>
