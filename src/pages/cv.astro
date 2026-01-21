@@ -8,12 +8,12 @@ const personalInfo = {
   name: "Cesar Obeth Flores",
   title: "Ingeniero en Sistemas",
   email: "cofloresf12@gmail.com",
-  phone: "+504 8793-8413",
+  phone: "+504 9661-6127",
   location: "Honduras",
   github: "CoFlores-12",
   linkedin: "cofloresf",
   portafolio: "https://cofloresf.vercel.app/",
-  about: "Ingeniero en Sistemas con 2 años de experiencia en desarrollo fullstack. Especializado en NextJS, React y desarrollo de aplicaciones empresariales. Apasionado por crear soluciones tecnológicas innovadoras.",
+  about: "Enfocado en el desarrollo Fullstack con sólida experiencia en arquitecturas escalables usando Next.js y React. Especializado en la digitalización de procesos empresariales y optimización de flujos de trabajo en sectores financieros y de telecomunicaciones.",
 };
 
 const education = [
@@ -21,31 +21,43 @@ const education = [
     institution: "Universidad Nacional Autónoma de Honduras",
     degree: "Ingeniería en Sistemas",
     period: "2020 - 2025",
-    description: "Formación en ingeniería de software, bases de datos, redes y gestión de proyectos."
+    description: "Egresado con distinción por excelencia académica. Formación en ingeniería de software, bases de datos, redes y gestión de proyectos."
   },
   {
     institution: "Instituto Evangélico Hosanna",
     degree: "Bachillerato Técnico Profesional en informática",
     period: "2017 - 2019",
-    description: "Educación técnica con enfoque en informática y desarrollo de software."
+    description: "Mención por excelencia académica. Formación técnica con enfoque en lógica de programación y desarrollo de software."
   }
 ];
 
 const experience = [
+{
+  "company": "Tigo",
+  "position": "Practicante de Ingeniería en Sistemas",
+  "period": "Oct. 2025 - Presente",
+  "achievements": [
+    "Diseño e implementación de un sistema de registro de evidencias para auditorías, mejorando la trazabilidad de cumplimiento.",
+    "Desarrollo integral de un portal corporativo para la gestión de cursos y certificaciones.",
+    "Creación de una plataforma de control de inventario para la optimización de activos internos.",
+    "Mantenimiento correctivo y evolución de funcionalidades en aplicaciones legacy del ecosistema Tigo.",
+    "Automatización de procesos operativos, logrando una reducción significativa en tiempos de ejecución manual."
+  ],
+  },
   {
     company: "Freelance",
     position: "Desarrollador Fullstack",
     period: "2023 - Presente",
     achievements: [
-      "Desarrollo de ERP para Franquicia Helados Sarita",
+      "Diseño y arquitectura de ERP para Franquicia Helados Sarita",
       "Creación de plataforma de banca en línea para Cooperativa Familiar",
       "Implementación de sistemas de gestión para pequeñas y medianas empresas nativas y del extranjero"
     ]
   },
   {
     company: "CEUTEC",
-    position: "Practicante Profesional",
-    period: "2019 Sept. - Nov",
+    position: "Práctica Profesional",
+    period: "Sept - Nov 2019",
     achievements: [
       "Mantenimiento de equipo de computo",
       "Soporte técnico a usuarios finales",
@@ -57,7 +69,7 @@ const experience = [
 const skills = [
   { name: "NextJS", level: 95 },
   { name: "React", level: 90 },
-  { name: "HTML/CSSJS", level: 90 },
+  { name: "Frontend Core", level: 90 },
   { name: "Tailwind", level: 85 },
   { name: "MongoDB", level: 75 },
   { name: "Git", level: 80 },
@@ -67,18 +79,21 @@ const skills = [
   { name: "MySQL", level: 80 },
   { name: "Golang", level: 80 },
   { name: "Dart", level: 80 },
-  { name: "Laravel", level: 80 }
+  { name: "Laravel", level: 80 },
+  { name: "Oracle SQL", level: 80 },
+  { name: "PL/SQL", level: 80 },
+  { name: "Apex Oracle", level: 80 },
 ];
 
 const projects = [
   {
     title: "Venture - Plataforma de Eventos",
-    description: "Startup que permite a usuarios buscar eventos por categoría, nombre o mapa de la ciudad. Integrado con Google, Apple, Uber y sistema de pagos en línea.",
+    description: "Startup para la gestión de eventos con geolocalización en tiempo real e integración de servicios de transporte (Uber) y pagos electrónicos.",
     technologies: ["Next.js", "Google API", "Tailwind", "Uber ", "MongoDB"]
   },
   {
     title: "IS-Manager - Gestor Académico UNAH",
-    description: "Sistema que realiza web scraping del sistema oficial de la UNAH para mostrar progreso académico, historial, rendimiento y ruta del plan de estudio con análisis de datos.",
+    description: "Herramienta de análisis de datos para estudiantes de la UNAH que automatiza la lectura de historiales y proyecta rutas de graduación mediante algoritmos de planificación.",
     technologies: ["Node.js", "HTML/CSS", "Data Analysis", "Chart.js"]
   },
 ];
@@ -117,7 +132,7 @@ const projects = [
         </div>
         <div class="flex items-center">
           <svg stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 448 512" class="text-blue-700 mr-2" height="1em" width="1em" xmlns="http://www.w3.org/2000/svg"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"></path></svg>
-          <a href='www.linkedin.com/in/cofloresf'>linkedin.com/in/{personalInfo.linkedin}</a>
+          <a href='https:www.linkedin.com/in/cofloresf'>linkedin.com/in/{personalInfo.linkedin}</a>
         </div>
       </div>
     </header>
